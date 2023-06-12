@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form method="post" id="myForm">
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">barcode</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{barcode}}</label>
+        </div>
+      </div>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">price</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{price}}تومان</label>
+        </div>
+      </div>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">sales_price</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{sales_price}}تومان</label>
+        </div>
+      </div>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">title</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{title}}</label>
+        </div>
+      </div>
+      
+      
+  
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">product_color</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{product_color}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">descriptions</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{descriptions}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">gharanti</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{gharanti}}</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">supplier</label>
+        <div class="col-sm-10">
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{supplier}}</label>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <!-- <label>product_color:{{product_color}}</label>
+      <br>
+  
+      <label>descriptions:{{descriptions}}</label>  
+      <br>
+  
+      <label>gharanti:{{gharanti}}</label>
+      <br>
+  
+      <label>supplier:{{supplier}}</label><br> -->
+
+    
+
+    {% set images = image_list %}
+    {% for image in images %}
+        <image src="{{url_for('static',filename = image )}}" ></image>
+    {% endfor %}
+    
+        
+    <br>
+
+   
+    
+    <div class="form-group">
+        {% set list1 = sizes.split('|') %} 
+        <div onclick="myFunction()">
+        <label>select size</label><br>
+        {% for size in list1 %}
+            <!-- <input type="submit" name="radio_button_1" value={{size}}><br/>      -->
+            <input  onClick="placeOrder(this.form)" type="radio" name="radio_button_1" value={{size}}>{{size}}<br/>
+
+        {% endfor %}
+        </div>
+       
+        <button id="show_button" type="submit" class="btn btn-primary" >buy with shahremun</button>
+        
+    </div>
+    
+    <!-- <label>selected size : {{size_selected}}</label> -->
+  
+</form>
+
+<hr>
+
+    
+
+
+
+{{shahremun_product_link}}
+
+{% endblock %}
+
+
+
+
+<script>
+    const myForm = document.getElementById("myForm");
+    document.querySelector(".submit").addEventListener("click", function(){
+
+    myForm.submit();
+
+});
+</script>
+
+<!-- <script>
+    function hideButton(x)
+     {
+      x.style.display = 'none';
+     }
+    </script> -->
+
+<!-- 
+<script type="text/javascript">
+    var button = document.getElementById('show_button')
+    button.addEventListener('click',hideshow,false);
+
+    function hideshow() {
+        document.getElementById('hidden-div').style.display = 'block'; 
+        this.style.display = 'none'
+    }   
+</script> -->
+<!-- <script>
+    function myFunction() {
+        var buttons = document.getElementsByName('radio_value');
+        for(var i = 0;i < buttons.length;i ++) {
+            if(buttons[i].checked == true) document.getElementById('select_value').value = i;
+        }
+    }
+    </script> -->

@@ -1,0 +1,28 @@
+{% block content %}
+    <form method="post">
+        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">...</h5>
+        <div class="pt-1 mb-4">
+        <!-- <textarea name="title" placeholder="Post title"
+        class="form-control">title:{{ request.form['title'] }}</textarea>
+        <textarea name="sizes_available" placeholder="Post sizes_available"
+        class="form-control">size:{{ request.form['sizes_available'] }}</textarea>
+        <textarea name="sales_price" placeholder="Post sales_price"
+        class="form-control">sales_price:{{ request.form['sales_price'] }}</textarea>
+        
+        <textarea name="descriptions" placeholder="Post descriptions"
+        class="form-control">descriptions:{{ request.form['descriptions'] }}</textarea> -->
+
+        <label for="shortcode">title:</label>
+        <input type="text" id="lastname" name="title" placeholder="{{ request.form['title'] }} ">
+        <label for="shortcode">size: </label>
+        <input type="text" id="lastname" name="sizes_available" placeholder="{{ request.form['sizes_available'] }} ">
+        <label for="shortcode">sales_price </label>
+        <input type="text" id="lastname" name="sales_price" placeholder="{{ request.form['sales_price'] }} ">
+        <label for="shortcode">descriptions: </label>
+        <textarea name="descriptions" placeholder="Post descriptions"
+        class="form-control">{{ request.form['descriptions'] }}</textarea> 
+        <button id="show_button" type="submit" class="btn btn-primary" >buy wih shahremun</button>
+        </div>
+    </form>
+
+{% endblock %}
